@@ -1,5 +1,12 @@
 This is the directory for Halsey.
 
+Camera side requirements
+- camera control (complete)
+- camera file versioning control (compelte)
+- camera auto push to server / stream
+- camera file storage
+- camera auto network connections
+
 Description of server side activites.
 
 - Manage storage of photos.

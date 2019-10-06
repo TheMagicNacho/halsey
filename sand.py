@@ -1,70 +1,28 @@
-'''Main'''
+from PIL import Image
+from keras.engine.saving import load_model
+from matplotlib import pyplot as plt
+from skimage.transform import resize
 import numpy as np
-import pandas as pd
-import os
-
-from sklearn.linear_model import LogisticRegression
-
-'''Data Viz'''
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-color = sns.color_palette()
-import matplotlib as mpl
-
-import csv
-from collections import Counter
-
-'''Data Prep'''
-from sklearn import preprocessing as pp
-from scipy.stats import pearsonr
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedKFold
-from sklearn.metrics import log_loss
-from sklearn.metrics import precision_recall_curve, average_precision_score
-from sklearn.metrics import roc_curve, auc, roc_auc_score
-from sklearn.metrics import confusion_matrix, classification_report
-
-'''Algos'''
-# from sklearn.linear_model import LogisticRegression
-# from sklearn.ensemble import RandomForestClassifier
-# import xgboost as xgb
-# import lightgbm as lgb
+import face_recognition
 
 
-# Acquire Data
-current_path = os.getcwd()
-file = 'models/halseytrainer.csv'
-data = pd.read_csv(file)
+src = "/home/admin/flitwick/halsey/img/test-img-1.jpg"
 
-# # print(data.columns)
-dataX = data.copy().drop(['class'], axis=1)
-dataY = data['class'].copy()
+#pre_load = load_img(src, grayscale=True)
+image = face_recognition.load_image_file(src)
+x = face_recognition.face_locations(image)
 
-featuresToScale = dataX.drop(['file'], axis=1).columns
-
-sX = pp.StandardScaler(copy=True)
-dataX.loc[:, featuresToScale] = sX.fit_transform(dataX[featuresToScale])
-scalingFactors = pd.DataFrame(data=[sX.mean_, sX.scale_], index=['Mean', 'StDev'], columns=featuresToScale)
-
-correlationMatrix = pd.DataFrame(data=[], index=dataX.columns, columns=dataX.columns)
+s = len(x)
+print(s)
 
 
-k_fold = StratifiedKFold(n_splits=5, shuffle=True, random_state=2018)
 
-penalty = 'l2'
-C = 1.0
-class_weight = 'balanced'
-random_state = 2018
-solver = 'liblinear'
-n_jobs = 1
 
-logReg = LogisticRegression(penalty=penalty, C=C, class_weight=class_weight, random_state=random_state, solver=solver, n_jobs=n_jobs)
-
-trainingScores = []
-cvScores = []
-predictionsBasedOnKFolds = pd.DataFrame(data=[], index=y_train.index, columns=[0, 1])
-
-model = logReg
-
-print(model)
+# top, right, bottom, left = face_locations[2]
+# face_array = image[top:bottom, left:right]
+# face_conv = Image.fromarray(face_array).convert('L').resize((64, 64))
+# x = np.array(face_conv)
+# plt.imshow(x)
+# plt.show()
+#
+# model = load_model("xxx")

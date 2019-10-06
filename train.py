@@ -90,6 +90,12 @@ current_path = os.getcwd()
 file = 'models/halseytrainer-happy.csv'
 data = pd.read_csv(file)
 
+
+data['boxplot'].plot(kind='box')
+plt.show()
+
+
+
 # # print(data.columns)
 # dataX = data.copy().drop(['class'], axis=1)
 # dataY = data['class'].copy()

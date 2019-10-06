@@ -1,4 +1,19 @@
-This is the directory for Halsey.
+Halsey Work Breakdown Sheet and Project Management Plan
+=
+
+
+Training
+- Create training model
+- Get dataset / corpus
+- Find the weighted average
+
+Emotion Detection
+- Import new photos
+- Is a person smiling?
+    - Find all faces
+    - Detect mouths
+        Do they match the traing models
+        
 
 Camera side requirements
 - camera control (complete)
@@ -18,4 +33,7 @@ Description of server side activites.
 =====
 
 **NOTES**
-All interface is between user front end and back. No online UX.
+All interface is between user front end and back.<br>
+Online UX is for downloading post-processed photos.<br>
+SBC can only detect faceses then push the files to the cloud for image processing<br>
+

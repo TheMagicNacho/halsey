@@ -64,9 +64,11 @@ def compare(cam_array):
         lower_limit = model_array - std_array
         upper_limit = model_array + std_array
         if local_array < upper_limit or local_array < lower_limit:
-            print('SMILE DETECTED')
+            # print('SMILE DETECTED')
+            return int(1)
         else:
-            print('No Smile :(')
+            # print('No Smile :(')
+            return int(0)
 
 
 index = face_count(face_cords)

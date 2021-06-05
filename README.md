@@ -30,10 +30,5 @@ Description of server side activites.
 
 - Coordinate upload to distribution platform of photos.
 
-=====
 
-**NOTES**
-All interface is between user front end and back.<br>
-Online UX is for downloading post-processed photos.<br>
-SBC can only detect faceses then push the files to the cloud for image processing<br>
 
